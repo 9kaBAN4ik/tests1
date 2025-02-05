@@ -115,7 +115,7 @@ async def send_product_page(chat_id, page: int, user_language: str, product_type
     if not visible_products:
         await bot.send_message(
             chat_id,
-            texts.get(user_language, texts['en'])["no_products"].format(
+            texts.get(user_language, texts)["no_products_promt"][user_language].format(
                 product_type=product_type or ('all' if user_language == 'en' else 'всех'))
         )
         return
